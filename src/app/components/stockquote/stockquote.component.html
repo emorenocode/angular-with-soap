@@ -1,0 +1,14 @@
+<h1>Consume a web service with SOAP</h1>
+<p>http://localhost:3000/stockquote</p>
+<h2>Parse response with DOMParse</h2>
+<p>Price: {{ price }}</p>
+<h2>Parse response with XML2Js</h2>
+<code>{{ jsonParsed | json }}</code>
+@if (jsonParsed) {
+<p>
+  Price:
+  {{
+    jsonParsed["soap:Envelope"]["soap:Body"]["0"]["xsd1:TradePrice"][0]["price"]
+  }}
+</p>
+}
